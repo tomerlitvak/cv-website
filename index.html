@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomer Litvak - Product Owner & Technical Leader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a3a6e; /* Lighter navy blue */
+            --primary-light: #3a5a8a;
+            --primary-lighter: #e6f0ff;
+            --accent: #3a5a8a; /* Matching primary-light */
+            --success: #10B981;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .profile-circle {
+            position: relative;
+        }
+        
+        .profile-circle::after {
+            content: "Let's build something great";
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .profile-circle:hover::after {
+            opacity: 1;
+            bottom: -40px;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .step-indicator {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #E5E7EB;
+            color: #6B7280;
+            font-weight: 600;
+        }
+        
+        .step-indicator.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .step-indicator.completed {
+            background-color: #10B981;
+            color: white;
+        }
+        
+        .checkout-step {
+            display: none;
+        }
+        
+        .checkout-step.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .skill-tag {
+            transition: all 0.2s ease;
+        }
+        
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header/Hero Section -->
+    <header class="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8" style="background-color: #d7d8cf;">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900">
+                    <span class="text-[var(--primary)]">Tomer</span> Litvak
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600 font-medium">
+                    Product Owner • Technical Leader
+                </h2>
+                <p class="text-lg text-gray-500 max-w-lg">
+                    "Shaping clarity between complex tech and business needs."
+                </p>
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <button id="downloadCvBtn" class="px-6 py-3 bg-[var(--primary)] text-white rounded-lg font-medium hover:bg-[var(--primary-light)] transition duration-300 shadow-md hover:shadow-lg">
+                        Download CV
+                    </button>
+                    <button id="startJourneyBtn" class="px-6 py-3 border border-[var(--primary)] text-[var(--primary)] rounded-lg font-medium hover:bg-[var(--primary-lighter)] transition duration-300 flex items-center gap-2">
+                        Start the Journey <span class="text-xl">🚀</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex justify-center lg:justify-end">
+                <div class="relative w-[22rem] lg:w-[25rem]">
+                    <img src="cv_picture.jpeg" alt="Profile photo of Tomer Litvak" class="w-full h-auto fade-edges" />
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="w-full">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
+                About <span class="text-main text-[var(--primary)]">Me</span>
+            </h2>
+            <div class="space-y-6">
+                <div class="md:col-span-2 space-y-6">
+                        <p class="text-lg text-gray-600">
+                            Currently serving as <span class="font-semibold text-[var(--primary)]">Product Owner Lead & Solutions Architect</span> at Compax, I bring a unique blend of technical expertise and product leadership.
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            With a background as a software developer turned product leader, I specialize in <span class="font-semibold text-[var(--primary)]">BSS/OCS system integration</span>, <span class="font-semibold text-[var(--primary)]">automation strategy</span>, and leading cross-regional teams to deliver exceptional results.
+                        </p>
+                        <p class="text-lg text-gray-600">
+                            My focus is on aligning technical architecture with business goals, ensuring that technology serves as an enabler rather than a constraint for growth and innovation.
+                        </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50" style="background-color: #d7d8cf;">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
+                Skills & <span class="text-[var(--primary)]">Tools</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-gray-100 rounded-xl p-6 shadow-sm card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--primary)]">Core Skills</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Product Management</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Automation Strategy</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">System Integration</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Stakeholder Communication</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">International Collaboration</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Agile Leadership</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Technical Presales</span>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-xl p-6 shadow-sm card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--primary)]">Tools & Technologies</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Jira</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Confluence</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Figma</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Java</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">PostgreSQL</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">FastAPI</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Docker</span>
+                        <span class="skill-tag px-4 py-2 bg-[var(--primary-lighter)] text-[var(--primary)] rounded-full font-medium">Kubernetes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive "Hire Me" Journey -->
+    <section id="hire-me" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-2xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">
+                Let's <span class="text-[var(--primary)]">Work Together</span>
+            </h2>
+            
+            <div class="bg-gray-50 rounded-xl p-8 shadow-md">
+                <!-- Progress Steps -->
+                <div class="flex justify-between mb-10 relative">
+                    <div class="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2 z-0"></div>
+                    <div class="step-indicator active z-10">1</div>
+                    <div class="step-indicator z-10">2</div>
+                    <div class="step-indicator z-10">3</div>
+                </div>
+                
+                <!-- Step 1: Select Qualities -->
+                <div id="step1" class="checkout-step active">
+                    <h3 class="text-xl font-semibold mb-6 text-center">What do you need in your Product Leader?</h3>
+                    <div class="space-y-4">
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">Leads globally distributed teams</p>
+                                <p class="text-sm text-gray-500">Experience managing teams across multiple time zones and cultures</p>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">Bridges product and engineering</p>
+                                <p class="text-sm text-gray-500">Translates business needs into technical requirements and vice versa</p>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">Fluent in full-stack architecture</p>
+                                <p class="text-sm text-gray-500">Deep understanding of both frontend and backend system design</p>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">Supports presales with technical clarity</p>
+                                <p class="text-sm text-gray-500">Helps shape proposals and pitches with accurate technical details</p>
+                            </div>
+                        </label>
+                        
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">Drives automation and agile delivery</p>
+                                <p class="text-sm text-gray-500">Implements CI/CD pipelines and agile best practices</p>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="mt-8 flex justify-end">
+                        <button id="step1Next" class="px-6 py-3 bg-[var(--primary)] text-white rounded-lg font-medium hover:bg-[var(--primary-light)] transition duration-300">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Soft skills -->
+                <div id="step2" class="checkout-step">
+                    <h3 class="text-xl font-semibold mb-6 text-center">Your product leader needs to be...</h3>
+                    <div class="space-y-4">
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">🤝 Empathetic and collaborative</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">🎯 Focused and goal-driven</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">🧭 Visionary but pragmatic</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">🔍 Detail-oriented and methodical</p>
+                            </div>
+                        </label>
+
+                        <label class="flex items-start space-x-3 bg-white p-4 rounded-lg border border-gray-200 hover:border-indigo-300 cursor-pointer">
+                            <input type="checkbox" class="mt-1 h-5 w-5 text-indigo-600 rounded focus:ring-indigo-500">
+                            <div>
+                                <p class="font-medium">🌱 Mentoring and team-enabling</p>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="mt-8 flex justify-between">
+                        <button id="step2Back" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium hover:bg-gray-50 transition duration-300">
+                            Back
+                        </button>
+                        <button id="step2Next" class="px-6 py-3 bg-[var(--primary)] text-white rounded-lg font-medium hover:bg-[var(--primary-light)] transition duration-300">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+
+
+                
+                <!-- Step 3: Confirmation -->
+                <div id="step3" class="checkout-step">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-check text-green-500 text-3xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold mb-4">Perfect match!</h3>
+                        <p class="text-gray-600 mb-6">
+                            I am ready to drive your product vision. Give me a call and let's get to know each other.
+                        </p>
+                        
+                        <div class="bg-[var(--primary-lighter)] rounded-lg p-4 mb-8 text-left">
+                            <h4 class="font-medium text-[var(--primary)] mb-2">Skills ordered:</h4>
+                            <ul id="selectedSkills" class="list-disc list-inside text-gray-700 space-y-1">
+                                <!-- Selected skills will be inserted here by JavaScript -->
+                            </ul>
+                        </div>
+                        
+                        <a id="contactBtn"  class="inline-block px-8 py-3 bg-[var(--primary)] text-white rounded-lg font-medium hover:bg-[var(--primary-light)] transition duration-300">
+                            Let's Talk
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-[var(--primary)] text-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12">
+                Get In <span class="text-indigo-200">Touch</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold">Contact Information</h3>
+
+                    <!-- Phone -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-[var(--primary-light)] flex items-center justify-center">
+                            <i class="fas fa-phone text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-[var(--primary-lighter)]">Phone</p>
+                            <a href="tel:+4368110215417" class="font-medium hover:underline">+43 681 10215417</a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-[var(--primary-light)] flex items-center justify-center">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-[var(--primary-lighter)]">Email</p>
+                            <a href="mailto:tomerlitvak@gmail.com" class="font-medium hover:underline">tomerlitvak@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-[var(--primary-light)] flex items-center justify-center">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-[var(--primary-lighter)]">LinkedIn</p>
+                            <a href="https://www.linkedin.com/in/tomer-litvak" target="_blank" rel="noopener noreferrer" class="font-medium hover:underline">
+                                linkedin.com/in/tomer-litvak
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-4">Send a Message</h3>
+
+                    <!-- Form wrapper for toggling visibility -->
+                    <div id="formWrapper">
+                        <form id="contactForm" class="space-y-4 text-gray-900" novalidate>
+                            <!-- Web3Forms access key -->
+                            <input type="hidden" name="access_key" value="666b3406-aaec-4c24-805b-de90658775de" />
+
+                            <!-- Optional subject line -->
+                            <input type="hidden" name="subject" value="New Contact from CV Site" />
+
+                            <!-- Optional auto-reply -->
+                            <input type="hidden" name="replyto" value="email" />
+                            <input type="hidden" name="from_name" value="CV Website Form" />
+
+                            <!-- Name -->
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                                <input
+                                        type="text"
+                                        name="name"
+                                        id="contact-name"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
+                                        required
+                                />
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                                <input
+                                        type="email"
+                                        name="email"
+                                        id="contact-email"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
+                                        required
+                                />
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                                <textarea
+                                        name="message"
+                                        id="contact-message"
+                                        rows="3"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 text-gray-900"
+                                        required
+                                ></textarea>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button
+                                    id="submitForm"
+                                    type="submit"
+                                    class="w-full px-6 py-3 bg-[var(--primary)] text-white rounded-lg font-medium hover:bg-[var(--primary-light)] transition duration-300 flex items-center justify-center gap-2"
+                            >
+                                <span id="buttonText">Send Message</span>
+                                <svg
+                                        id="spinner"
+                                        class="animate-spin h-5 w-5 text-white hidden"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                >
+                                    <circle
+                                            class="opacity-25"
+                                            cx="12"
+                                            cy="12"
+                                            r="10"
+                                            stroke="currentColor"
+                                            stroke-width="4"
+                                    ></circle>
+                                    <path
+                                            class="opacity-75"
+                                            fill="currentColor"
+                                            d="M4 12a8 8 0 018-8v8z"
+                                    ></path>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Thank-you message (hidden by default) -->
+                    <div
+                            id="thankYouMessage"
+                            class="hidden mt-6 p-4 bg-green-100 border border-green-300 rounded-lg text-center text-green-800 text-lg font-semibold shadow"
+                    >
+                        <p>Thank you for contacting — I will be in touch shortly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 mb-4 md:mb-0">
+                © 2025 Tomer Litvak. All rights reserved.
+            </p>
+            <p class="text-gray-400 flex items-center gap-1">
+                Made with <span class="text-red-400">❤️</span> and lots of AI
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // jump to hire me section
+        document.getElementById('startJourneyBtn').addEventListener('click', function() {
+            document.getElementById('hire-me').scrollIntoView({ behavior: 'smooth' });
+            
+            // Reset steps
+            document.querySelectorAll('.checkout-step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.getElementById('step1').classList.add('active');
+            
+            // Reset indicators
+            const indicators = document.querySelectorAll('.step-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('active', 'completed');
+                if (index === 0) indicator.classList.add('active');
+            });
+        });
+
+        // Step navigation
+        let currentStep = 1;
+        
+        document.getElementById('step1Next').addEventListener('click', function() {
+            navigateToStep(2);
+        });
+        
+        document.getElementById('step2Back').addEventListener('click', function() {
+            navigateToStep(1);
+        });
+        
+        document.getElementById('step2Next').addEventListener('click', function() {
+
+            
+            // Collect selected skills
+            const selectedSkills = [];
+            document.querySelectorAll('#step1 input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedSkills.push(checkbox.parentElement.querySelector('p:first-child').textContent);
+            });
+            document.querySelectorAll('#step2 input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedSkills.push(checkbox.parentElement.querySelector('p:first-child').textContent);
+            });
+
+            
+            // Display selected skills
+            const skillsList = document.getElementById('selectedSkills');
+            skillsList.innerHTML = '';
+            selectedSkills.forEach(skill => {
+                const li = document.createElement('li');
+                li.textContent = skill;
+                skillsList.appendChild(li);
+            });
+            
+            navigateToStep(3);
+        });
+        
+        function navigateToStep(step) {
+            // Update current step
+            currentStep = step;
+            
+            // Update step indicators
+            const indicators = document.querySelectorAll('.step-indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.remove('active', 'completed');
+                if (index + 1 < step) {
+                    indicator.classList.add('completed');
+                } else if (index + 1 === step) {
+                    indicator.classList.add('active');
+                }
+            });
+            
+            // Show the correct step content
+            document.querySelectorAll('.checkout-step').forEach(stepEl => {
+                stepEl.classList.remove('active');
+            });
+            document.getElementById(`step${step}`).classList.add('active');
+            
+            // Scroll to top of the form
+            document.getElementById('hire-me').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('contactBtn').addEventListener('click', function() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        //download CV script
+        document.getElementById('downloadCvBtn').addEventListener('click', function () {
+            const link = document.createElement('a');
+            link.href = 'cv-old.pdf'; //
+            link.download = 'TOMER_LITVAK_CV.pdf'; //
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        //contact form submit button
+        const form = document.getElementById("contactForm");
+        const formWrapper = document.getElementById("formWrapper");
+        const thankYouMessage = document.getElementById("thankYouMessage");
+        const button = document.getElementById("submitForm");
+        const spinner = document.getElementById("spinner");
+        const buttonText = document.getElementById("buttonText");
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("contact-name").value.trim();
+            const email = document.getElementById("contact-email").value.trim();
+            const message = document.getElementById("contact-message").value.trim();
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!name || !email || !message) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            // Show spinner and disable button
+            spinner.classList.remove("hidden");
+            button.disabled = true;
+            button.classList.add("opacity-50");
+            buttonText.textContent = "Sending...";
+
+            const formData = new FormData();
+            formData.append("name", name);
+            formData.append("email", email);
+            formData.append("message", message);
+            formData.append("_subject", "New Contact Form Submission from CV Website");
+            formData.append("_autoresponse", "Hi! Thanks for reaching out. Tomer will be in touch shortly.");
+            formData.append("_template", "box");
+            formData.append("_captcha", "false");
+
+            try {
+                const response = await fetch("https://formsubmit.co/ajax/tomerlitvak@gmail.com", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Hide the form and show thank-you message
+                    formWrapper.classList.add("hidden");
+                    thankYouMessage.classList.remove("hidden");
+
+                    // Reset form
+                    form.reset();
+                } else {
+                    alert("Oops! Something went wrong. Please try again later.");
+                }
+            } catch (error) {
+                alert("Network error. Please try again.");
+            }
+
+            // Hide spinner and enable button
+            spinner.classList.add("hidden");
+            button.disabled = false;
+            button.classList.remove("opacity-50");
+            buttonText.textContent = "Send Message";
+        });
+    </script>
+</body>
+</html>
